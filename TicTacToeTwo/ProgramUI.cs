@@ -4,40 +4,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TicTacToe
+namespace TicTacToeTwo
 {
-    class Program
+    class ProgramUI
     {
-
-        // ! change text (X/0) to different colors
-        // ! create player 1 and player 2 class
-        // ! change background color of board
-        // ! have the system / save keep track of the players records PLAYER 1: 5 WINS / PLAYER 2: 3 WINS
-        static void Main(string[] args)
+        private GameContentRepo _contentRepo = new GameContentRepo();
+        public void Run()
         {
+            GamePlay();
+        }
 
-            string player1, player2, location; //Fields - can convert into properties to set the values
-            int counter = 0;
-            string win = "";
-            string topLeft = "1";
-            string topCenter = "2";
-            string topRight = "3";
-            string midLeft = "4";
-            string midCenter = "5";
-            string midRight = "6";
-            string bottomLeft = "7";
-            string bottomCenter = "8";
-            string bottomRight = "9";
-
-
-
-
-
-
-            Console.WriteLine("Please enter the name of player 1:");
-            player1 = Console.ReadLine();
-            Console.WriteLine("Please enter the name of player 2:");
-            player2 = Console.ReadLine();
+        private void GamePlay()
+        {
 
 
 
@@ -51,7 +29,7 @@ namespace TicTacToe
                 Console.WriteLine("-----------");
                 Console.WriteLine($" " + bottomLeft + " | " + bottomCenter + " | " + bottomRight + " ");
 
-                if (counter % 2 == 0) 
+                if (counter % 2 == 0)
                 {
 
                     Console.WriteLine($"{player1} please enter the number of the location you would like to place your X:");
@@ -298,7 +276,7 @@ namespace TicTacToe
                         }
                     }
                 }
-                if(topLeft == topCenter && topCenter == topRight) // top row
+                if (topLeft == topCenter && topCenter == topRight) // top row
                 {
                     win = topLeft;
                 }
@@ -340,7 +318,7 @@ namespace TicTacToe
             }
             while (win == "");
             Console.Clear();
-           if(win == "X")
+            if (win == "X")
             {
                 Console.WriteLine($"{player1} wins!");
             }
@@ -348,7 +326,9 @@ namespace TicTacToe
             {
                 Console.WriteLine($"{player2} wins!");
             }
-           
+
+            
+
 
             Console.ReadLine();
         }

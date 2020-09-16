@@ -5,3 +5,10 @@ C:\ElevenFiftyProjects\DotNetProjects\ConsoleGame\TicTacToe\obj\Debug\TicTacToe.
 C:\ElevenFiftyProjects\DotNetProjects\ConsoleGame\TicTacToe\obj\Debug\TicTacToe.csproj.CoreCompileInputs.cache
 C:\ElevenFiftyProjects\DotNetProjects\ConsoleGame\TicTacToe\obj\Debug\TicTacToe.exe
 C:\ElevenFiftyProjects\DotNetProjects\ConsoleGame\TicTacToe\obj\Debug\TicTacToe.pdb
+C:\ElevenFiftyProjects\DotNetProjects\PairConsoleAppGame\TicTacToe\bin\Debug\TicTacToe.exe.config
+C:\ElevenFiftyProjects\DotNetProjects\PairConsoleAppGame\TicTacToe\bin\Debug\TicTacToe.exe
+C:\ElevenFiftyProjects\DotNetProjects\PairConsoleAppGame\TicTacToe\bin\Debug\TicTacToe.pdb
+C:\ElevenFiftyProjects\DotNetProjects\PairConsoleAppGame\TicTacToe\obj\Debug\TicTacToe.csprojAssemblyReference.cache
+C:\ElevenFiftyProjects\DotNetProjects\PairConsoleAppGame\TicTacToe\obj\Debug\TicTacToe.csproj.CoreCompileInputs.cache
+C:\ElevenFiftyProjects\DotNetProjects\PairConsoleAppGame\TicTacToe\obj\Debug\TicTacToe.exe
+C:\ElevenFiftyProjects\DotNetProjects\PairConsoleAppGame\TicTacToe\obj\Debug\TicTacToe.pdb
