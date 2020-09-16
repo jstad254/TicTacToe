@@ -14,9 +14,7 @@ namespace TicTacToe
 
             string player1, player2, location;
             int counter = 0;
-            int winX, winO;
-            winX = 0;
-            winO = 0;
+            string win = "";
             string topLeft = "1";
             string topCenter = "2";
             string topRight = "3";
@@ -52,7 +50,7 @@ namespace TicTacToe
                 if (counter % 2 == 0)
                 {
 
-                    Console.WriteLine("Please enter the number of the location you would like to place your marker (X/O):");
+                    Console.WriteLine($"{player1} please enter the number of the location you would like to place your X:");
                     location = Console.ReadLine();
 
                     if (location == "1")
@@ -175,7 +173,7 @@ namespace TicTacToe
                 }
                 else
                 {
-                    Console.WriteLine("Please enter the number of the location you would like to place your marker (X/O):");
+                    Console.WriteLine($"{player2} please enter the number of the location you would like to place your O:");
                     location = Console.ReadLine();
 
                     if (location == "1")
@@ -296,17 +294,57 @@ namespace TicTacToe
                         }
                     }
                 }
+                if(topLeft == topCenter && topCenter == topRight) // top row
+                {
+                    win = topLeft;
+                }
+                else if (midLeft == midCenter && midCenter == midRight) //middle row
+                {
+                    win = midLeft;
+                }
+                else if (bottomLeft == bottomCenter && midCenter == bottomRight) // bottom row
+                {
+                    win = bottomLeft;
+                }
+                else if (topLeft == midLeft && midLeft == bottomLeft) // Left column
+                {
+                    win = topLeft;
+                }
+                else if (topCenter == midCenter && midCenter == bottomCenter) // center column
+                {
+                    win = topCenter;
+                }
+                else if (topRight == midRight && midRight == bottomRight) // right column
+                {
+                    win = topRight;
+                }
+                else if (topLeft == midCenter && midCenter == bottomRight) // diagonal tl to br
+                {
+                    win = topLeft;
+                }
+                else if (topRight == midCenter && midCenter == bottomLeft) // diagonal tr to bl
+                {
+                    win = topRight;
+                }
+                else if (counter == 9)
+                {
+                    Console.Clear();
+                    Console.WriteLine("Draw, nobody wins!");
+                    Console.ReadLine();
+                    Environment.Exit(0);
+                }
             }
-            while (winX != 1 || winO != 1);
-           /* if(winX == 1)
+            while (win == "");
+            Console.Clear();
+           if(win == "X")
             {
-                Console.WriteLine($"{player1} wins!")
+                Console.WriteLine($"{player1} wins!");
             }
-            if (winO == 1)
+            else if (win == "O")
             {
-                Console.WriteLine($"{player2} wins!")
+                Console.WriteLine($"{player2} wins!");
             }
-           */
+           
 
             Console.ReadLine();
         }
