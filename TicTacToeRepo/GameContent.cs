@@ -10,9 +10,9 @@ namespace TicTacToeRepo
     {
         // POCO
 
-        string Player1 { get; set; }
-        string Player2 { get; set; }
-        string Location { get; set; }
+        string Player1 { get; set; } // Property
+        string Player2 { get; set; } // Property
+        string Location { get; set; } // Property
         int counter = 0;
         string win = "";
         string topLeft = "1";
@@ -27,6 +27,5 @@ namespace TicTacToeRepo
 
 
 
-        public 
     }
 }
