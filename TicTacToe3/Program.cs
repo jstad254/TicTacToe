@@ -15,57 +15,53 @@ namespace TicTacToe3
         // ! have the system / save keep track of the players records PLAYER 1: 5 WINS / PLAYER 2: 3 WINS
         static void Main(string[] args)
         {
+            GameBoard gameBoard = new GameBoard();
+            
 
-            string location; //Fields - can convert into properties to set the values
+            string location; 
             int counter = 0;
             string win = "";
-            string topLeft = "1";
-            string topCenter = "2";
-            string topRight = "3";
-            string midLeft = "4";
-            string midCenter = "5";
-            string midRight = "6";
-            string bottomLeft = "7";
-            string bottomCenter = "8";
-            string bottomRight = "9";
+            
 
-
+            Console.WriteLine("Please enter the name of player 1:");
             Player player1 = new Player();
             player1.playerName = Console.ReadLine();
             player1.winCount = 0;
+            Console.WriteLine("Please enter the name of player 2:");
             Player player2 = new Player();
             player2.playerName = Console.ReadLine();
             player2.winCount = 0;
 
-
-            //Console.WriteLine("Please enter the name of player 1:");
-            //Player player1 = Console.ReadLine();
-           // Console.WriteLine("Please enter the name of player 2:");
-          //  Player player2 = Console.ReadLine();
-
+            //Console.WriteLine(player1.playerName);
+           // Console.WriteLine(player2.playerName);
+            //Console.ReadLine();
 
 
             do
             {
+               
+
                 Console.Clear();
                 Console.WriteLine("");
-                Console.WriteLine($" " + topLeft + " | " + topCenter + " | " + topRight + " ");
+                Console.WriteLine($" " + gameBoard.topLeft + " | " + gameBoard.topCenter + " | " + gameBoard.topRight + " ");
                 Console.WriteLine("-----------");
-                Console.WriteLine($" " + midLeft + " | " + midCenter + " | " + midRight + " ");
+                Console.WriteLine($" " + gameBoard.midLeft + " | " + gameBoard.midCenter + " | " + gameBoard.midRight + " ");
                 Console.WriteLine("-----------");
-                Console.WriteLine($" " + bottomLeft + " | " + bottomCenter + " | " + bottomRight + " ");
+                Console.WriteLine($" " + gameBoard.bottomLeft + " | " + gameBoard.bottomCenter + " | " + gameBoard.bottomRight + " ");
 
                 if (counter % 2 == 0)
                 {
 
-                    Console.WriteLine($"{player1} please enter the number of the location you would like to place your X:");
+                    Console.WriteLine($"{player1.playerName} please enter the number of the location you would like to place your X:");
                     location = Console.ReadLine();
-
+                    int stringToInt = System.Convert.ToInt32(location);
+                    gameBoard.PositionCheck(stringToInt);
+                    
                     if (location == "1")
                     {
-                        if (topLeft == "1")
+                        if (gameBoard.topLeft == "1")
                         {
-                            topLeft = "X";
+                            gameBoard.topLeft = "X";
                             counter++;
                         }
                         else
@@ -76,9 +72,9 @@ namespace TicTacToe3
                     }
                     else if (location == "2")
                     {
-                        if (topCenter == "2")
+                        if (gameBoard.topCenter == "2")
                         {
-                            topCenter = "X";
+                            gameBoard.topCenter = "X";
                             counter++;
                         }
                         else
@@ -89,9 +85,9 @@ namespace TicTacToe3
                     }
                     else if (location == "3")
                     {
-                        if (topRight == "3")
+                        if (gameBoard.topRight == "3")
                         {
-                            topRight = "X";
+                            gameBoard.topRight = "X";
                             counter++;
                         }
                         else
@@ -102,9 +98,9 @@ namespace TicTacToe3
                     }
                     else if (location == "4")
                     {
-                        if (midLeft == "4")
+                        if (gameBoard.midLeft == "4")
                         {
-                            midLeft = "X";
+                            gameBoard.midLeft = "X";
                             counter++;
                         }
                         else
@@ -115,9 +111,9 @@ namespace TicTacToe3
                     }
                     else if (location == "5")
                     {
-                        if (midCenter == "5")
+                        if (gameBoard.midCenter == "5")
                         {
-                            midCenter = "X";
+                            gameBoard.midCenter = "X";
                             counter++;
                         }
                         else
@@ -128,9 +124,9 @@ namespace TicTacToe3
                     }
                     else if (location == "6")
                     {
-                        if (midRight == "6")
+                        if (gameBoard.midRight == "6")
                         {
-                            midRight = "X";
+                            gameBoard.midRight = "X";
                             counter++;
                         }
                         else
@@ -141,9 +137,9 @@ namespace TicTacToe3
                     }
                     else if (location == "7")
                     {
-                        if (bottomLeft == "7")
+                        if (gameBoard.bottomLeft == "7")
                         {
-                            bottomLeft = "X";
+                            gameBoard.bottomLeft = "X";
                             counter++;
                         }
                         else
@@ -154,9 +150,9 @@ namespace TicTacToe3
                     }
                     else if (location == "8")
                     {
-                        if (bottomCenter == "8")
+                        if (gameBoard.bottomCenter == "8")
                         {
-                            bottomCenter = "X";
+                            gameBoard.bottomCenter = "X";
                             counter++;
                         }
                         else
@@ -167,9 +163,9 @@ namespace TicTacToe3
                     }
                     else if (location == "9")
                     {
-                        if (bottomRight == "9")
+                        if (gameBoard.bottomRight == "9")
                         {
-                            bottomRight = "X";
+                            gameBoard.bottomRight = "X";
                             counter++;
                         }
                         else
@@ -181,14 +177,14 @@ namespace TicTacToe3
                 }
                 else
                 {
-                    Console.WriteLine($"{player2} please enter the number of the location you would like to place your O:");
+                    Console.WriteLine($"{player2.playerName} please enter the number of the location you would like to place your O:");
                     location = Console.ReadLine();
 
                     if (location == "1")
                     {
-                        if (topLeft == "1")
+                        if (gameBoard.topLeft == "1")
                         {
-                            topLeft = "O";
+                            gameBoard.topLeft = "O";
                             counter++;
                         }
                         else
@@ -199,9 +195,9 @@ namespace TicTacToe3
                     }
                     else if (location == "2")
                     {
-                        if (topCenter == "2")
+                        if (gameBoard.topCenter == "2")
                         {
-                            topCenter = "O";
+                            gameBoard.topCenter = "O";
                             counter++;
                         }
                         else
@@ -212,9 +208,9 @@ namespace TicTacToe3
                     }
                     else if (location == "3")
                     {
-                        if (topRight == "3")
+                        if (gameBoard.topRight == "3")
                         {
-                            topRight = "O";
+                            gameBoard.topRight = "O";
                             counter++;
                         }
                         else
@@ -225,9 +221,9 @@ namespace TicTacToe3
                     }
                     else if (location == "4")
                     {
-                        if (midLeft == "4")
+                        if (gameBoard.midLeft == "4")
                         {
-                            midLeft = "O";
+                            gameBoard.midLeft = "O";
                             counter++;
                         }
                         else
@@ -238,9 +234,9 @@ namespace TicTacToe3
                     }
                     else if (location == "5")
                     {
-                        if (midCenter == "5")
+                        if (gameBoard.midCenter == "5")
                         {
-                            midCenter = "O";
+                            gameBoard.midCenter = "O";
                             counter++;
                         }
                         else
@@ -251,9 +247,9 @@ namespace TicTacToe3
                     }
                     else if (location == "6")
                     {
-                        if (midRight == "6")
+                        if (gameBoard.midRight == "6")
                         {
-                            midRight = "O";
+                            gameBoard.midRight = "O";
                             counter++;
                         }
                         else
@@ -264,9 +260,9 @@ namespace TicTacToe3
                     }
                     else if (location == "7")
                     {
-                        if (bottomLeft == "7")
+                        if (gameBoard.bottomLeft == "7")
                         {
-                            bottomLeft = "O";
+                            gameBoard.bottomLeft = "O";
                             counter++;
                         }
                         else
@@ -277,9 +273,9 @@ namespace TicTacToe3
                     }
                     else if (location == "8")
                     {
-                        if (bottomCenter == "8")
+                        if (gameBoard.bottomCenter == "8")
                         {
-                            bottomCenter = "O";
+                            gameBoard.bottomCenter = "O";
                             counter++;
                         }
                         else
@@ -290,9 +286,9 @@ namespace TicTacToe3
                     }
                     else if (location == "9")
                     {
-                        if (bottomRight == "9")
+                        if (gameBoard.bottomRight == "9")
                         {
-                            bottomRight = "O";
+                            gameBoard.bottomRight = "O";
                             counter++;
                         }
                         else
@@ -302,37 +298,37 @@ namespace TicTacToe3
                         }
                     }
                 }
-                if (topLeft == topCenter && topCenter == topRight) // top row
+                if (gameBoard.topLeft == gameBoard.topCenter && gameBoard.topCenter == gameBoard.topRight) // top row
                 {
-                    win = topLeft;
+                    win = gameBoard.topLeft;
                 }
-                else if (midLeft == midCenter && midCenter == midRight) //middle row
+                else if (gameBoard.midLeft == gameBoard.midCenter && gameBoard.midCenter == gameBoard.midRight) //middle row
                 {
-                    win = midLeft;
+                    win = gameBoard.midLeft;
                 }
-                else if (bottomLeft == bottomCenter && bottomCenter == bottomRight) // bottom row
+                else if (gameBoard.bottomLeft == gameBoard.bottomCenter && gameBoard.bottomCenter == gameBoard.bottomRight) // bottom row
                 {
-                    win = bottomLeft;
+                    win = gameBoard.bottomLeft;
                 }
-                else if (topLeft == midLeft && midLeft == bottomLeft) // Left column
+                else if (gameBoard.topLeft == gameBoard.midLeft && gameBoard.midLeft == gameBoard.bottomLeft) // Left column
                 {
-                    win = topLeft;
+                    win = gameBoard.topLeft;
                 }
-                else if (topCenter == midCenter && midCenter == bottomCenter) // center column
+                else if (gameBoard.topCenter == gameBoard.midCenter && gameBoard.midCenter == gameBoard.bottomCenter) // center column
                 {
-                    win = topCenter;
+                    win = gameBoard.topCenter;
                 }
-                else if (topRight == midRight && midRight == bottomRight) // right column
+                else if (gameBoard.topRight == gameBoard.midRight && gameBoard.midRight == gameBoard.bottomRight) // right column
                 {
-                    win = topRight;
+                    win = gameBoard.topRight;
                 }
-                else if (topLeft == midCenter && midCenter == bottomRight) // diagonal tl to br
+                else if (gameBoard.topLeft == gameBoard.midCenter && gameBoard.midCenter == gameBoard.bottomRight) // diagonal tl to br
                 {
-                    win = topLeft;
+                    win = gameBoard.topLeft;
                 }
-                else if (topRight == midCenter && midCenter == bottomLeft) // diagonal tr to bl
+                else if (gameBoard.topRight == gameBoard.midCenter && gameBoard.midCenter == gameBoard.bottomLeft) // diagonal tr to bl
                 {
-                    win = topRight;
+                    win = gameBoard.topRight;
                 }
                 else if (counter == 9)
                 {
@@ -346,11 +342,11 @@ namespace TicTacToe3
             Console.Clear();
             if (win == "X")
             {
-                Console.WriteLine($"{player1} wins!");
+                Console.WriteLine($"{player1.playerName} wins!");
             }
             else if (win == "O")
             {
-                Console.WriteLine($"{player2} wins!");
+                Console.WriteLine($"{player2.playerName} wins!");
             }
 
 

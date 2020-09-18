@@ -11,7 +11,10 @@ namespace TicTacToe3
         public string playerName; // Class attribute
         public int winCount;
 
+        public Player()
+        {
 
+        }
 
         public Player(string aPlayer, int aWinCount) // ! Blueprint for data types in 
         {

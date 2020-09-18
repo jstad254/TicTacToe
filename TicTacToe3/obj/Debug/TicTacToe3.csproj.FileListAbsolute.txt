@@ -1,0 +1,7 @@
+C:\ElevenFiftyProjects\DotNetProjects\ConsoleGame\TicTacToe3\bin\Debug\TicTacToe3.exe.config
+C:\ElevenFiftyProjects\DotNetProjects\ConsoleGame\TicTacToe3\bin\Debug\TicTacToe3.exe
+C:\ElevenFiftyProjects\DotNetProjects\ConsoleGame\TicTacToe3\bin\Debug\TicTacToe3.pdb
+C:\ElevenFiftyProjects\DotNetProjects\ConsoleGame\TicTacToe3\obj\Debug\TicTacToe3.csprojAssemblyReference.cache
+C:\ElevenFiftyProjects\DotNetProjects\ConsoleGame\TicTacToe3\obj\Debug\TicTacToe3.csproj.CoreCompileInputs.cache
+C:\ElevenFiftyProjects\DotNetProjects\ConsoleGame\TicTacToe3\obj\Debug\TicTacToe3.exe
+C:\ElevenFiftyProjects\DotNetProjects\ConsoleGame\TicTacToe3\obj\Debug\TicTacToe3.pdb
