@@ -56,10 +56,10 @@ namespace TicTacToe3
             if(stringToInt < 1 || stringToInt > 9)
             {
                 Console.WriteLine("Please enter a valid number on the board!");
-                Console.ReadLine();
+                System.Threading.Thread.Sleep(TimeSpan.FromSeconds(1));
             }
         }
-        public int  ThisExampleMethod()
+        public int ThisExampleMethod()
         {
             int res = myVar + MyProperty;
             return res;

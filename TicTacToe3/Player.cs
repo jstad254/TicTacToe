@@ -9,7 +9,7 @@ namespace TicTacToe3
     public class Player
     {
         public string playerName; // Class attribute
-        public int winCount;
+        public int winCount = 0;
 
         public Player()
         {
