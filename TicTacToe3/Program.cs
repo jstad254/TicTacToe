@@ -20,15 +20,20 @@ namespace TicTacToe3
             string playGame = "y";
 
             Console.WriteLine();
+            Console.WriteLine();
+            Console.WriteLine("       Welcome to TicTacToe!");
+            Console.WriteLine();
+            Console.WriteLine();
+            Console.WriteLine();
             Console.WriteLine(" Please enter the name of PLAYER 1:");
             Console.WriteLine();
             Player player1 = new Player();
-            Console.Write(" "); player1.playerName = Console.ReadLine();
+            Console.Write("              "); player1.playerName = Console.ReadLine();
             Console.WriteLine();
             Console.WriteLine(" Please enter the name of PLAYER 2:");
             Console.WriteLine();
             Player player2 = new Player();
-            Console.Write(" "); player2.playerName = Console.ReadLine();
+            Console.Write("              "); player2.playerName = Console.ReadLine();
 
             while(playGame.Contains("y"))
             {
@@ -53,274 +58,312 @@ namespace TicTacToe3
                     if (counter % 2 == 0)
                     {
 
-                        Console.WriteLine($" {player1.playerName} Please enter the number of the location you would like to place your X:");
-                        location = Console.ReadLine().ToString();
-
-                        if (char.IsDigit(location[0]) && location.Length < 2)
+                        Console.WriteLine($" {player1.playerName} Please enter the number of the location to place your X:");
+                        location = Console.ReadLine();
+                        
+                        /*if (char.IsDigit(location[0]) && location.Length < 2)
                         {
                             int stringToInt = System.Convert.ToInt32(location);
-                            gameBoard.PositionCheck(stringToInt);
+                            gameBoard.PositionCheck(stringToInt);*/
 
-                            if (location == "1")
+                            switch (location)
                             {
-                                if (gameBoard.topLeft == "1")
-                                {
-                                    gameBoard.topLeft = "X";
-                                    counter++;
-                                }
-                                else
-                                {
-                                    Console.WriteLine(" Please choose an unused space!");
+                                case "1":
+                                    if (gameBoard.topLeft == "1")
+                                    {
+                                        gameBoard.topLeft = "X";
+                                        counter++;
+                                    }
+                                    else
+                                    {
+                                        Console.WriteLine();
+                                        Console.WriteLine(" Please choose an unused space!");
+                                        System.Threading.Thread.Sleep(TimeSpan.FromSeconds(1));
+                                    }
+
+                                    break;
+                                case "2":
+                                    if (gameBoard.topCenter == "2")
+                                    {
+                                        gameBoard.topCenter = "X";
+                                        counter++;
+                                    }
+                                    else
+                                    {
+                                        Console.WriteLine();
+                                        Console.WriteLine(" Please choose an unused space!");
+                                        System.Threading.Thread.Sleep(TimeSpan.FromSeconds(1));
+                                    }
+
+                                    break;
+                                case "3":
+                                    if (gameBoard.topRight == "3")
+                                    {
+                                        gameBoard.topRight = "X";
+                                        counter++;
+                                    }
+                                    else
+                                    {
+                                        Console.WriteLine();
+                                        Console.WriteLine(" Please choose an unused space!");
+                                        System.Threading.Thread.Sleep(TimeSpan.FromSeconds(1));
+                                    }
+
+                                    break;
+                                case "4":
+                                    if (gameBoard.midLeft == "4")
+                                    {
+                                        gameBoard.midLeft = "X";
+                                        counter++;
+                                    }
+                                    else
+                                    {
+                                        Console.WriteLine();
+                                        Console.WriteLine(" Please choose an unused space!");
+                                        System.Threading.Thread.Sleep(TimeSpan.FromSeconds(1));
+                                    }
+
+                                    break;
+                                case "5":
+                                    if (gameBoard.midCenter == "5")
+                                    {
+                                        gameBoard.midCenter = "X";
+                                        counter++;
+                                    }
+                                    else
+                                    {
+                                        Console.WriteLine();
+                                        Console.WriteLine(" Please choose an unused space!");
+                                        System.Threading.Thread.Sleep(TimeSpan.FromSeconds(1));
+                                    }
+
+                                    break;
+                                case "6":
+                                    if (gameBoard.midRight == "6")
+                                    {
+                                        gameBoard.midRight = "X";
+                                        counter++;
+                                    }
+                                    else
+                                    {
+                                        Console.WriteLine();
+                                        Console.WriteLine(" Please choose an unused space!");
+                                        System.Threading.Thread.Sleep(TimeSpan.FromSeconds(1));
+                                    }
+
+                                    break;
+                                case "7":
+                                    if (gameBoard.bottomLeft == "7")
+                                    {
+                                        gameBoard.bottomLeft = "X";
+                                        counter++;
+                                    }
+                                    else
+                                    {
+                                        Console.WriteLine();
+                                        Console.WriteLine(" Please choose an unused space!");
+                                        System.Threading.Thread.Sleep(TimeSpan.FromSeconds(1));
+                                    }
+
+                                    break;
+                                case "8":
+                                    if (gameBoard.bottomCenter == "8")
+                                    {
+                                        gameBoard.bottomCenter = "X";
+                                        counter++;
+                                    }
+                                    else
+                                    {
+                                        Console.WriteLine();
+                                        Console.WriteLine(" Please choose an unused space!");
+                                        System.Threading.Thread.Sleep(TimeSpan.FromSeconds(1));
+                                    }
+
+                                    break;
+                                case "9":
+                                    if (gameBoard.bottomRight == "9")
+                                    {
+                                        gameBoard.bottomRight = "X";
+                                        counter++;
+                                    }
+                                    else
+                                    {
+                                        Console.WriteLine();
+                                        Console.WriteLine(" Please choose an unused space!");
+                                        System.Threading.Thread.Sleep(TimeSpan.FromSeconds(1));
+                                    }
+
+                                    break;
+                                default:
+                                    Console.WriteLine("Please enter a valid board number 1-9!");
                                     System.Threading.Thread.Sleep(TimeSpan.FromSeconds(1));
-                                }
-                            }
-                            else if (location == "2")
-                            {
-                                if (gameBoard.topCenter == "2")
-                                {
-                                    gameBoard.topCenter = "X";
-                                    counter++;
-                                }
-                                else
-                                {
-                                    Console.WriteLine(" Please choose an unused space!");
-                                    System.Threading.Thread.Sleep(TimeSpan.FromSeconds(1));
-                                }
-                            }
-                            else if (location == "3")
-                            {
-                                if (gameBoard.topRight == "3")
-                                {
-                                    gameBoard.topRight = "X";
-                                    counter++;
-                                }
-                                else
-                                {
-                                    Console.WriteLine(" Please choose an unused space!");
-                                    System.Threading.Thread.Sleep(TimeSpan.FromSeconds(1));
-                                }
-                            }
-                            else if (location == "4")
-                            {
-                                if (gameBoard.midLeft == "4")
-                                {
-                                    gameBoard.midLeft = "X";
-                                    counter++;
-                                }
-                                else
-                                {
-                                    Console.WriteLine(" Please choose an unused space!");
-                                    System.Threading.Thread.Sleep(TimeSpan.FromSeconds(1));
-                                }
-                            }
-                            else if (location == "5")
-                            {
-                                if (gameBoard.midCenter == "5")
-                                {
-                                    gameBoard.midCenter = "X";
-                                    counter++;
-                                }
-                                else
-                                {
-                                    Console.WriteLine(" Please choose an unused space!");
-                                    System.Threading.Thread.Sleep(TimeSpan.FromSeconds(1));
-                                }
-                            }
-                            else if (location == "6")
-                            {
-                                if (gameBoard.midRight == "6")
-                                {
-                                    gameBoard.midRight = "X";
-                                    counter++;
-                                }
-                                else
-                                {
-                                    Console.WriteLine(" Please choose an unused space!");
-                                    System.Threading.Thread.Sleep(TimeSpan.FromSeconds(1));
-                                }
-                            }
-                            else if (location == "7")
-                            {
-                                if (gameBoard.bottomLeft == "7")
-                                {
-                                    gameBoard.bottomLeft = "X";
-                                    counter++;
-                                }
-                                else
-                                {
-                                    Console.WriteLine(" Please choose an unused space!");
-                                    System.Threading.Thread.Sleep(TimeSpan.FromSeconds(1));
-                                }
-                            }
-                            else if (location == "8")
-                            {
-                                if (gameBoard.bottomCenter == "8")
-                                {
-                                    gameBoard.bottomCenter = "X";
-                                    counter++;
-                                }
-                                else
-                                {
-                                    Console.WriteLine(" Please choose an unused space!");
-                                    System.Threading.Thread.Sleep(TimeSpan.FromSeconds(1));
-                                }
-                            }
-                            else if (location == "9")
-                            {
-                                if (gameBoard.bottomRight == "9")
-                                {
-                                    gameBoard.bottomRight = "X";
-                                    counter++;
-                                }
-                                else
-                                {
-                                    Console.WriteLine(" Please choose an unused space!");
-                                    System.Threading.Thread.Sleep(TimeSpan.FromSeconds(1));
-                                }
+                                    break;
                             }
 
+                        /*}
+                        else if (location == "")
+                        {
+                            Console.WriteLine();
+                            Console.WriteLine(" Please enter a valid number 1 - 9 please!");
+                            System.Threading.Thread.Sleep(TimeSpan.FromSeconds(1));
                         }
                         else
                         {
                             Console.WriteLine();
                             Console.WriteLine(" Only numbers 1 - 9 please!");
                             System.Threading.Thread.Sleep(TimeSpan.FromSeconds(1));
-                        }
+                        }*/
                     }
                     else
                     {
-                        Console.WriteLine($" {player2.playerName} please enter the number of the location you would like to place your O:");
-                        location = Console.ReadLine();
+                        Console.WriteLine($" {player2.playerName} please enter the number of the location to place your O:");
+                        location = Console.ReadLine().ToString();
 
-                        if (char.IsDigit(location[0]))
+                        /*if (char.IsDigit(location[0]) && location.Length < 2)
                         {
                             int stringToInt = System.Convert.ToInt32(location);
-                            gameBoard.PositionCheck(stringToInt);
+                            gameBoard.PositionCheck(stringToInt);*/
 
-                            if (location == "1")
+                            switch (location)
                             {
-                                if (gameBoard.topLeft == "1")
-                                {
-                                    gameBoard.topLeft = "O";
-                                    counter++;
-                                }
-                                else
-                                {
-                                    Console.WriteLine(" Please choose an unused space!");
+                                case "1":
+                                    if (gameBoard.topLeft == "1")
+                                    {
+                                        gameBoard.topLeft = "O";
+                                        counter++;
+                                    }
+                                    else
+                                    {
+                                        Console.WriteLine();
+                                        Console.WriteLine(" Please choose an unused space!");
+                                        System.Threading.Thread.Sleep(TimeSpan.FromSeconds(1));
+                                    }
+
+                                    break;
+                                case "2":
+                                    if (gameBoard.topCenter == "2")
+                                    {
+                                        gameBoard.topCenter = "O";
+                                        counter++;
+                                    }
+                                    else
+                                    {
+                                        Console.WriteLine();
+                                        Console.WriteLine(" Please choose an unused space!");
+                                        System.Threading.Thread.Sleep(TimeSpan.FromSeconds(1));
+                                    }
+
+                                    break;
+                                case "3":
+                                    if (gameBoard.topRight == "3")
+                                    {
+                                        gameBoard.topRight = "O";
+                                        counter++;
+                                    }
+                                    else
+                                    {
+                                        Console.WriteLine();
+                                        Console.WriteLine(" Please choose an unused space!");
+                                        System.Threading.Thread.Sleep(TimeSpan.FromSeconds(1));
+                                    }
+
+                                    break;
+                                case "4":
+                                    if (gameBoard.midLeft == "4")
+                                    {
+                                        gameBoard.midLeft = "O";
+                                        counter++;
+                                    }
+                                    else
+                                    {
+                                        Console.WriteLine();
+                                        Console.WriteLine(" Please choose an unused space!");
+                                        System.Threading.Thread.Sleep(TimeSpan.FromSeconds(1));
+                                    }
+
+                                    break;
+                                case "5":
+                                    if (gameBoard.midCenter == "5")
+                                    {
+                                        gameBoard.midCenter = "O";
+                                        counter++;
+                                    }
+                                    else
+                                    {
+                                        Console.WriteLine();
+                                        Console.WriteLine(" Please choose an unused space!");
+                                        System.Threading.Thread.Sleep(TimeSpan.FromSeconds(1));
+                                    }
+
+                                    break;
+                                case "6":
+                                    if (gameBoard.midRight == "6")
+                                    {
+                                        gameBoard.midRight = "O";
+                                        counter++;
+                                    }
+                                    else
+                                    {
+                                        Console.WriteLine();
+                                        Console.WriteLine(" Please choose an unused space!");
+                                        System.Threading.Thread.Sleep(TimeSpan.FromSeconds(1));
+                                    }
+
+                                    break;
+                                case "7":
+                                    if (gameBoard.bottomLeft == "7")
+                                    {
+                                        gameBoard.bottomLeft = "O";
+                                        counter++;
+                                    }
+                                    else
+                                    {
+                                        Console.WriteLine();
+                                        Console.WriteLine(" Please choose an unused space!");
+                                        System.Threading.Thread.Sleep(TimeSpan.FromSeconds(1));
+                                    }
+
+                                    break;
+                                case "8":
+                                    if (gameBoard.bottomCenter == "8")
+                                    {
+                                        gameBoard.bottomCenter = "O";
+                                        counter++;
+                                    }
+                                    else
+                                    {
+                                        Console.WriteLine();
+                                        Console.WriteLine(" Please choose an unused space!");
+                                        System.Threading.Thread.Sleep(TimeSpan.FromSeconds(1));
+                                    }
+
+                                    break;
+                                case "9":
+                                    if (gameBoard.bottomRight == "9")
+                                    {
+                                        gameBoard.bottomRight = "O";
+                                        counter++;
+                                    }
+                                    else
+                                    {
+                                        Console.WriteLine();
+                                        Console.WriteLine(" Please choose an unused space!");
+                                        System.Threading.Thread.Sleep(TimeSpan.FromSeconds(1));
+                                    }
+
+                                    break;
+                                default:
+                                    Console.WriteLine("Please enter a valid board number 1-9!");
                                     System.Threading.Thread.Sleep(TimeSpan.FromSeconds(1));
-                                }
+                                    break;
                             }
-                            else if (location == "2")
-                            {
-                                if (gameBoard.topCenter == "2")
-                                {
-                                    gameBoard.topCenter = "O";
-                                    counter++;
-                                }
-                                else
-                                {
-                                    Console.WriteLine(" Please choose an unused space!");
-                                    System.Threading.Thread.Sleep(TimeSpan.FromSeconds(1));
-                                }
-                            }
-                            else if (location == "3")
-                            {
-                                if (gameBoard.topRight == "3")
-                                {
-                                    gameBoard.topRight = "O";
-                                    counter++;
-                                }
-                                else
-                                {
-                                    Console.WriteLine(" Please choose an unused space!");
-                                    System.Threading.Thread.Sleep(TimeSpan.FromSeconds(1));
-                                }
-                            }
-                            else if (location == "4")
-                            {
-                                if (gameBoard.midLeft == "4")
-                                {
-                                    gameBoard.midLeft = "O";
-                                    counter++;
-                                }
-                                else
-                                {
-                                    Console.WriteLine(" Please choose an unused space!");
-                                    System.Threading.Thread.Sleep(TimeSpan.FromSeconds(1));
-                                }
-                            }
-                            else if (location == "5")
-                            {
-                                if (gameBoard.midCenter == "5")
-                                {
-                                    gameBoard.midCenter = "O";
-                                    counter++;
-                                }
-                                else
-                                {
-                                    Console.WriteLine(" Please choose an unused space!");
-                                    System.Threading.Thread.Sleep(TimeSpan.FromSeconds(1));
-                                }
-                            }
-                            else if (location == "6")
-                            {
-                                if (gameBoard.midRight == "6")
-                                {
-                                    gameBoard.midRight = "O";
-                                    counter++;
-                                }
-                                else
-                                {
-                                    Console.WriteLine(" Please choose an unused space!");
-                                    System.Threading.Thread.Sleep(TimeSpan.FromSeconds(1));
-                                }
-                            }
-                            else if (location == "7")
-                            {
-                                if (gameBoard.bottomLeft == "7")
-                                {
-                                    gameBoard.bottomLeft = "O";
-                                    counter++;
-                                }
-                                else
-                                {
-                                    Console.WriteLine(" Please choose an unused space!");
-                                    System.Threading.Thread.Sleep(TimeSpan.FromSeconds(1));
-                                }
-                            }
-                            else if (location == "8")
-                            {
-                                if (gameBoard.bottomCenter == "8")
-                                {
-                                    gameBoard.bottomCenter = "O";
-                                    counter++;
-                                }
-                                else
-                                {
-                                    Console.WriteLine(" Please choose an unused space!");
-                                    System.Threading.Thread.Sleep(TimeSpan.FromSeconds(1));
-                                }
-                            }
-                            else if (location == "9")
-                            {
-                                if (gameBoard.bottomRight == "9")
-                                {
-                                    gameBoard.bottomRight = "O";
-                                    counter++;
-                                }
-                                else
-                                {
-                                    Console.WriteLine(" Please choose an unused space!");
-                                    System.Threading.Thread.Sleep(TimeSpan.FromSeconds(1));
-                                }
-                            }
-                        }
+                        /*}
                         else
                         {
                             Console.WriteLine();
                             Console.WriteLine(" Only numbers 1 - 9 please!");
                             System.Threading.Thread.Sleep(TimeSpan.FromSeconds(1));
-                        }
+                        }*/
                     }
 
                     if (gameBoard.topLeft == gameBoard.topCenter && gameBoard.topCenter == gameBoard.topRight) // top row
@@ -361,6 +404,10 @@ namespace TicTacToe3
                         Console.WriteLine();
                         Console.WriteLine();
                         Console.WriteLine("     Draw, nobody wins!");
+                        Console.WriteLine();
+                        Console.WriteLine();
+                        Console.WriteLine($" Win Totals:   {player1.winCount} - {player1.playerName}");
+                        Console.WriteLine($"               {player2.winCount} - {player2.playerName}");
                         System.Threading.Thread.Sleep(TimeSpan.FromSeconds(1.5));
                         win = "0";
                         //Environment.Exit(0);

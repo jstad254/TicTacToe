@@ -18,6 +18,7 @@ namespace TicTacToe3
         public string bottomLeft { get; set; } = "7";
         public string bottomCenter { get; set; } = "8";
         public string bottomRight { get; set; } = "9";
+
         private int myVar;
 
         public int MyProperty
@@ -51,20 +52,21 @@ namespace TicTacToe3
             bottomRight = bR;
         }
 
-        public void PositionCheck(int stringToInt)
+        /*public void PositionCheck(int stringToInt)
         {
-            if(stringToInt < 1 || stringToInt > 9)
+            if(stringToInt != null || stringToInt < 1 || stringToInt > 9)
             {
+                Console.WriteLine();
                 Console.WriteLine("Please enter a valid number on the board!");
                 System.Threading.Thread.Sleep(TimeSpan.FromSeconds(1));
             }
-        }
-        public int ThisExampleMethod()
-        {
-            int res = myVar + MyProperty;
-            return res;
+        }*/
+        //public int ThisExampleMethod()
+        //{
+        //    int res = myVar + MyProperty;
+        //    return res;
 
-        }
+        //}
 
     }
 }
