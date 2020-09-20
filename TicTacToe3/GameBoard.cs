@@ -19,54 +19,344 @@ namespace TicTacToe3
         public string bottomCenter { get; set; } = "8";
         public string bottomRight { get; set; } = "9";
 
+        public string location { get; set; }
+        public int counter { get; set; } = 0;
+
         private int myVar;
 
         public int MyProperty
         {
             get { if (myVar > 9)
                 {
-                    throw new ArgumentOutOfRangeException();   
+                    throw new ArgumentOutOfRangeException();
                 }
                 return myVar;
             }
-            
+
 
         }
         
-
         public GameBoard()
         {
 
         }
-
-        public GameBoard(string tL, string tC, string tR, string mL, string mC, string mR, string bL, string bC, string bR)
+        
+        public void GameBoardReset()
         {
-            topLeft = tL;
-            topCenter = tC;
-            topRight = tR;
-            midLeft = mL;
-            midCenter = mC;
-            midRight = mR;
-            bottomLeft = bL;
-            bottomCenter = bC;
-            bottomRight = bR;
+            topLeft = "1";
+            topCenter = "2";
+            topRight = "3";
+            midLeft = "4";
+            midCenter = "5";
+            midRight = "6";
+            bottomLeft = "7";
+            bottomCenter = "8";
+            bottomRight = "9";
+            counter = 0;
+        }
+        public void SwitchCaseX()
+        {
+            switch (location)
+            {
+                case "1":
+                    if (topLeft == "1")
+                    {
+                        topLeft = "X";
+
+                        counter++;
+                    }
+                    else
+                    {
+                        Console.WriteLine();
+                        Console.ForegroundColor = ConsoleColor.Magenta; Console.WriteLine("   Please choose an unused space!"); Console.ResetColor();
+                        System.Threading.Thread.Sleep(TimeSpan.FromSeconds(1));
+                    }
+
+                    break;
+                case "2":
+                    if (topCenter == "2")
+                    {
+                        topCenter = "X";
+                        counter++;
+                    }
+                    else
+                    {
+                        Console.WriteLine();
+                        Console.ForegroundColor = ConsoleColor.Magenta; Console.WriteLine("   Please choose an unused space!"); Console.ResetColor();
+                        System.Threading.Thread.Sleep(TimeSpan.FromSeconds(1));
+                    }
+
+                    break;
+                case "3":
+                    if (topRight == "3")
+                    {
+                        topRight = "X";
+                        counter++;
+                    }
+                    else
+                    {
+                        Console.WriteLine();
+                        Console.ForegroundColor = ConsoleColor.Magenta; Console.WriteLine("   Please choose an unused space!"); Console.ResetColor();
+                        System.Threading.Thread.Sleep(TimeSpan.FromSeconds(1));
+                    }
+
+                    break;
+                case "4":
+                    if (midLeft == "4")
+                    {
+                        midLeft = "X";
+                        counter++;
+                    }
+                    else
+                    {
+                        Console.WriteLine();
+                        Console.ForegroundColor = ConsoleColor.Magenta; Console.WriteLine("   Please choose an unused space!"); Console.ResetColor();
+                        System.Threading.Thread.Sleep(TimeSpan.FromSeconds(1));
+                    }
+
+                    break;
+                case "5":
+                    if (midCenter == "5")
+                    {
+                        midCenter = "X";
+                        counter++;
+                    }
+                    else
+                    {
+                        Console.WriteLine();
+                        Console.ForegroundColor = ConsoleColor.Magenta; Console.WriteLine("   Please choose an unused space!"); Console.ResetColor();
+                        System.Threading.Thread.Sleep(TimeSpan.FromSeconds(1));
+                    }
+
+                    break;
+                case "6":
+                    if (midRight == "6")
+                    {
+                        midRight = "X";
+                        counter++;
+                    }
+                    else
+                    {
+                        Console.WriteLine();
+                        Console.ForegroundColor = ConsoleColor.Magenta; Console.WriteLine("   Please choose an unused space!"); Console.ResetColor();
+                        System.Threading.Thread.Sleep(TimeSpan.FromSeconds(1));
+                    }
+
+                    break;
+                case "7":
+                    if (bottomLeft == "7")
+                    {
+                        bottomLeft = "X";
+                        counter++;
+                    }
+                    else
+                    {
+                        Console.WriteLine();
+                        Console.ForegroundColor = ConsoleColor.Magenta; Console.WriteLine("   Please choose an unused space!"); Console.ResetColor();
+                        System.Threading.Thread.Sleep(TimeSpan.FromSeconds(1));
+                    }
+
+                    break;
+                case "8":
+                    if (bottomCenter == "8")
+                    {
+                        bottomCenter = "X";
+                        counter++;
+                    }
+                    else
+                    {
+                        Console.WriteLine();
+                        Console.ForegroundColor = ConsoleColor.Magenta; Console.WriteLine("   Please choose an unused space!"); Console.ResetColor();
+                        System.Threading.Thread.Sleep(TimeSpan.FromSeconds(1));
+                    }
+
+                    break;
+                case "9":
+                    if (bottomRight == "9")
+                    {
+                        bottomRight = "X";
+                        counter++;
+                    }
+                    else
+                    {
+                        Console.WriteLine();
+                        Console.ForegroundColor = ConsoleColor.Magenta; Console.WriteLine("   Please choose an unused space!"); Console.ResetColor();
+                        System.Threading.Thread.Sleep(TimeSpan.FromSeconds(1));
+                    }
+
+                    break;
+                default:
+                    Console.WriteLine();
+                    Console.ForegroundColor = ConsoleColor.Magenta; Console.WriteLine("Please enter a valid board number 1-9!"); Console.ResetColor();
+                    System.Threading.Thread.Sleep(TimeSpan.FromSeconds(1));
+                    break;
+            }
+        }
+        public void SwitchCaseO()
+        {
+            switch (location)
+            {
+                case "1":
+                    if (topLeft == "1")
+                    {
+                        topLeft = "O";
+                        counter++;
+                    }
+                    else
+                    {
+                        Console.WriteLine();
+                        Console.ForegroundColor = ConsoleColor.Magenta; Console.WriteLine("   Please choose an unused space!"); Console.ResetColor();
+                        System.Threading.Thread.Sleep(TimeSpan.FromSeconds(1));
+                    }
+
+                    break;
+                case "2":
+                    if (topCenter == "2")
+                    {
+                        topCenter = "O";
+                        counter++;
+                    }
+                    else
+                    {
+                        Console.WriteLine();
+                        Console.ForegroundColor = ConsoleColor.Magenta; Console.WriteLine("   Please choose an unused space!"); Console.ResetColor();
+                        System.Threading.Thread.Sleep(TimeSpan.FromSeconds(1));
+                    }
+
+                    break;
+                case "3":
+                    if (topRight == "3")
+                    {
+                        topRight = "O";
+                        counter++;
+                    }
+                    else
+                    {
+                        Console.WriteLine();
+                        Console.ForegroundColor = ConsoleColor.Magenta; Console.WriteLine("   Please choose an unused space!"); Console.ResetColor();
+                        System.Threading.Thread.Sleep(TimeSpan.FromSeconds(1));
+                    }
+
+                    break;
+                case "4":
+                    if (midLeft == "4")
+                    {
+                        midLeft = "O";
+                        counter++;
+                    }
+                    else
+                    {
+                        Console.WriteLine();
+                        Console.ForegroundColor = ConsoleColor.Magenta; Console.WriteLine("   Please choose an unused space!"); Console.ResetColor();
+                        System.Threading.Thread.Sleep(TimeSpan.FromSeconds(1));
+                    }
+
+                    break;
+                case "5":
+                    if (midCenter == "5")
+                    {
+                        midCenter = "O";
+                        counter++;
+                    }
+                    else
+                    {
+                        Console.WriteLine();
+                        Console.ForegroundColor = ConsoleColor.Magenta; Console.WriteLine("   Please choose an unused space!"); Console.ResetColor();
+                        System.Threading.Thread.Sleep(TimeSpan.FromSeconds(1));
+                    }
+
+                    break;
+                case "6":
+                    if (midRight == "6")
+                    {
+                        midRight = "O";
+                        counter++;
+                    }
+                    else
+                    {
+                        Console.WriteLine();
+                        Console.ForegroundColor = ConsoleColor.Magenta; Console.WriteLine("   Please choose an unused space!"); Console.ResetColor();
+                        System.Threading.Thread.Sleep(TimeSpan.FromSeconds(1));
+                    }
+
+                    break;
+                case "7":
+                    if (bottomLeft == "7")
+                    {
+                        bottomLeft = "O";
+                        counter++;
+                    }
+                    else
+                    {
+                        Console.WriteLine();
+                        Console.ForegroundColor = ConsoleColor.Magenta; Console.WriteLine("   Please choose an unused space!"); Console.ResetColor();
+                        System.Threading.Thread.Sleep(TimeSpan.FromSeconds(1));
+                    }
+
+                    break;
+                case "8":
+                    if (bottomCenter == "8")
+                    {
+                        bottomCenter = "O";
+                        counter++;
+                    }
+                    else
+                    {
+                        Console.WriteLine();
+                        Console.ForegroundColor = ConsoleColor.Magenta; Console.WriteLine("   Please choose an unused space!"); Console.ResetColor();
+                        System.Threading.Thread.Sleep(TimeSpan.FromSeconds(1));
+                    }
+
+                    break;
+                case "9":
+                    if (bottomRight == "9")
+                    {
+                        bottomRight = "O";
+                        counter++;
+                    }
+                    else
+                    {
+                        Console.WriteLine();
+                        Console.ForegroundColor = ConsoleColor.Magenta; Console.WriteLine("   Please choose an unused space!"); Console.ResetColor();
+                        System.Threading.Thread.Sleep(TimeSpan.FromSeconds(1));
+                    }
+
+                    break;
+                default:
+                    Console.WriteLine();
+                    Console.ForegroundColor = ConsoleColor.Magenta; Console.WriteLine("Please enter a valid board number 1-9!"); Console.ResetColor();
+                    System.Threading.Thread.Sleep(TimeSpan.FromSeconds(1));
+                    break;
+            }
         }
 
-        /*public void PositionCheck(int stringToInt)
-        {
-            if(stringToInt != null || stringToInt < 1 || stringToInt > 9)
-            {
-                Console.WriteLine();
-                Console.WriteLine("Please enter a valid number on the board!");
-                System.Threading.Thread.Sleep(TimeSpan.FromSeconds(1));
-            }
-        }*/
-        //public int ThisExampleMethod()
-        //{
-        //    int res = myVar + MyProperty;
-        //    return res;
 
-        //}
+        /*Future game color updates
+        bColor = ConsoleColor.Black;
+        xColor = ConsoleColor.Green;
+        oColor = ConsoleColor.Red;
+        normColor = ConsoleColor.Yellow;
+        warnColor = ConsoleColor.Magenta;*/
+
+        /*Start to consolidate switches for X and O
+        public void gameBoardPlay(playerXorO(gb.counter%2, location)
+        {
+            switch location
+                case "1":
+                if
+                    {
+                    topLeft == "1"{
+                        topLeft = playerXorO;
+                        counter++;
+                    }
+                    else
+                    {
+                        Console.WriteLine();
+                        Console.ForegroundColor = ConsoleColor.Magenta; Console.WriteLine("   Please choose an unused space!"); Console.ResetColor();
+                        System.Threading.Thread.Sleep(TimeSpan.FromSeconds(1));
+                    }
+
+                    break; */
 
     }
 }

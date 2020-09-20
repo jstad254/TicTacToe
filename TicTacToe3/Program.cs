@@ -1,7 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Common;
+using System.Diagnostics;
 using System.Linq;
 using System.Runtime.CompilerServices;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -9,363 +12,57 @@ namespace TicTacToe3
 {
     class Program
     {
-
-        // ! change text (X/0) to different colors
-        // ! create player 1 and player 2 class
-        // ! change background color of board
-        // ! have the system / save keep track of the players records PLAYER 1: 5 WINS / PLAYER 2: 3 WINS
         static void Main(string[] args)
         {
-            string location;
+            GameBoard gameBoard = new GameBoard();
             string playGame = "y";
-
             Console.WriteLine();
             Console.WriteLine();
-            Console.WriteLine("       Welcome to TicTacToe!");
+            Console.ForegroundColor = ConsoleColor.Yellow; Console.Write("       Welcome to "); Console.ForegroundColor = ConsoleColor.Green; Console.Write("Tic"); Console.ForegroundColor = ConsoleColor.Red; Console.Write("Tac"); Console.ForegroundColor = ConsoleColor.Green; Console.WriteLine("Toe!");
+            Console.ResetColor();
             Console.WriteLine();
             Console.WriteLine();
             Console.WriteLine();
-            Console.WriteLine(" Please enter the name of PLAYER 1:");
-            Console.WriteLine();
+            Console.Write(" Please enter the name of PLAYER 1:  ");
             Player player1 = new Player();
-            Console.Write("              "); player1.playerName = Console.ReadLine();
+            Console.ForegroundColor = ConsoleColor.Yellow; player1.playerName = Console.ReadLine(); Console.ResetColor();
             Console.WriteLine();
-            Console.WriteLine(" Please enter the name of PLAYER 2:");
-            Console.WriteLine();
+            Console.Write(" Please enter the name of PLAYER 2:  ");
             Player player2 = new Player();
-            Console.Write("              "); player2.playerName = Console.ReadLine();
-
-            while(playGame.Contains("y"))
+            Console.ForegroundColor = ConsoleColor.Yellow; player2.playerName = Console.ReadLine(); Console.ResetColor();
+            while (playGame.Contains("y"))
             {
-                GameBoard gameBoard = new GameBoard();
                 string win = "";
-                int counter = 0;
                 do
                 {
-                    
-
                     Console.Clear();
                     Console.WriteLine("");
-                    Console.WriteLine($"      " + gameBoard.topLeft + " | " + gameBoard.topCenter + " | " + gameBoard.topRight + " ");
-                    Console.WriteLine("     -----------");
-                    Console.WriteLine($"      " + gameBoard.midLeft + " | " + gameBoard.midCenter + " | " + gameBoard.midRight + " ");
-                    Console.WriteLine("     -----------");
-                    Console.WriteLine($"      " + gameBoard.bottomLeft + " | " + gameBoard.bottomCenter + " | " + gameBoard.bottomRight + " ");
+                    Console.Write("             "); Console.BackgroundColor = ConsoleColor.White;Console.Write(" "); Console.ForegroundColor = ConsoleColor.Black; Console.Write(gameBoard.topLeft); Console.ResetColor(); Console.BackgroundColor = ConsoleColor.White; Console.ForegroundColor = ConsoleColor.Black; Console.Write(" | "); /*Console.ForegroundColor = ConsoleColor;*/ Console.Write(gameBoard.topCenter); Console.ResetColor(); Console.BackgroundColor = ConsoleColor.White; Console.ForegroundColor = ConsoleColor.Black; Console.Write(" | "); /*Console.ForegroundColor = ConsoleColor;*/ Console.Write(gameBoard.topRight); Console.ResetColor(); Console.BackgroundColor = ConsoleColor.White; Console.WriteLine(" ");
+                    Console.ResetColor();
+                    Console.Write("             "); Console.BackgroundColor = ConsoleColor.White; Console.ForegroundColor = ConsoleColor.Black; Console.WriteLine("-----------");
+                    Console.ResetColor();
+                    Console.Write("             "); Console.BackgroundColor = ConsoleColor.White; Console.ForegroundColor = ConsoleColor.Black; Console.WriteLine($" " + gameBoard.midLeft + " | " + gameBoard.midCenter + " | " + gameBoard.midRight + " ");
+                    Console.ResetColor();
+                    Console.Write("             "); Console.BackgroundColor = ConsoleColor.White; Console.ForegroundColor = ConsoleColor.Black; Console.WriteLine("-----------");
+                    Console.ResetColor();
+                    Console.Write("             "); Console.BackgroundColor = ConsoleColor.White; Console.ForegroundColor = ConsoleColor.Black; Console.WriteLine($" " + gameBoard.bottomLeft + " | " + gameBoard.bottomCenter + " | " + gameBoard.bottomRight + " ");
+                    Console.ResetColor();
                     Console.WriteLine();
                     Console.WriteLine();
-
-
-                    if (counter % 2 == 0)
+                    if (gameBoard.counter % 2 == 0)
                     {
-
-                        Console.WriteLine($" {player1.playerName} Please enter the number of the location to place your X:");
-                        location = Console.ReadLine();
-                        
-                        /*if (char.IsDigit(location[0]) && location.Length < 2)
-                        {
-                            int stringToInt = System.Convert.ToInt32(location);
-                            gameBoard.PositionCheck(stringToInt);*/
-
-                            switch (location)
-                            {
-                                case "1":
-                                    if (gameBoard.topLeft == "1")
-                                    {
-                                        gameBoard.topLeft = "X";
-                                        counter++;
-                                    }
-                                    else
-                                    {
-                                        Console.WriteLine();
-                                        Console.WriteLine(" Please choose an unused space!");
-                                        System.Threading.Thread.Sleep(TimeSpan.FromSeconds(1));
-                                    }
-
-                                    break;
-                                case "2":
-                                    if (gameBoard.topCenter == "2")
-                                    {
-                                        gameBoard.topCenter = "X";
-                                        counter++;
-                                    }
-                                    else
-                                    {
-                                        Console.WriteLine();
-                                        Console.WriteLine(" Please choose an unused space!");
-                                        System.Threading.Thread.Sleep(TimeSpan.FromSeconds(1));
-                                    }
-
-                                    break;
-                                case "3":
-                                    if (gameBoard.topRight == "3")
-                                    {
-                                        gameBoard.topRight = "X";
-                                        counter++;
-                                    }
-                                    else
-                                    {
-                                        Console.WriteLine();
-                                        Console.WriteLine(" Please choose an unused space!");
-                                        System.Threading.Thread.Sleep(TimeSpan.FromSeconds(1));
-                                    }
-
-                                    break;
-                                case "4":
-                                    if (gameBoard.midLeft == "4")
-                                    {
-                                        gameBoard.midLeft = "X";
-                                        counter++;
-                                    }
-                                    else
-                                    {
-                                        Console.WriteLine();
-                                        Console.WriteLine(" Please choose an unused space!");
-                                        System.Threading.Thread.Sleep(TimeSpan.FromSeconds(1));
-                                    }
-
-                                    break;
-                                case "5":
-                                    if (gameBoard.midCenter == "5")
-                                    {
-                                        gameBoard.midCenter = "X";
-                                        counter++;
-                                    }
-                                    else
-                                    {
-                                        Console.WriteLine();
-                                        Console.WriteLine(" Please choose an unused space!");
-                                        System.Threading.Thread.Sleep(TimeSpan.FromSeconds(1));
-                                    }
-
-                                    break;
-                                case "6":
-                                    if (gameBoard.midRight == "6")
-                                    {
-                                        gameBoard.midRight = "X";
-                                        counter++;
-                                    }
-                                    else
-                                    {
-                                        Console.WriteLine();
-                                        Console.WriteLine(" Please choose an unused space!");
-                                        System.Threading.Thread.Sleep(TimeSpan.FromSeconds(1));
-                                    }
-
-                                    break;
-                                case "7":
-                                    if (gameBoard.bottomLeft == "7")
-                                    {
-                                        gameBoard.bottomLeft = "X";
-                                        counter++;
-                                    }
-                                    else
-                                    {
-                                        Console.WriteLine();
-                                        Console.WriteLine(" Please choose an unused space!");
-                                        System.Threading.Thread.Sleep(TimeSpan.FromSeconds(1));
-                                    }
-
-                                    break;
-                                case "8":
-                                    if (gameBoard.bottomCenter == "8")
-                                    {
-                                        gameBoard.bottomCenter = "X";
-                                        counter++;
-                                    }
-                                    else
-                                    {
-                                        Console.WriteLine();
-                                        Console.WriteLine(" Please choose an unused space!");
-                                        System.Threading.Thread.Sleep(TimeSpan.FromSeconds(1));
-                                    }
-
-                                    break;
-                                case "9":
-                                    if (gameBoard.bottomRight == "9")
-                                    {
-                                        gameBoard.bottomRight = "X";
-                                        counter++;
-                                    }
-                                    else
-                                    {
-                                        Console.WriteLine();
-                                        Console.WriteLine(" Please choose an unused space!");
-                                        System.Threading.Thread.Sleep(TimeSpan.FromSeconds(1));
-                                    }
-
-                                    break;
-                                default:
-                                    Console.WriteLine("Please enter a valid board number 1-9!");
-                                    System.Threading.Thread.Sleep(TimeSpan.FromSeconds(1));
-                                    break;
-                            }
-
-                        /*}
-                        else if (location == "")
-                        {
-                            Console.WriteLine();
-                            Console.WriteLine(" Please enter a valid number 1 - 9 please!");
-                            System.Threading.Thread.Sleep(TimeSpan.FromSeconds(1));
-                        }
-                        else
-                        {
-                            Console.WriteLine();
-                            Console.WriteLine(" Only numbers 1 - 9 please!");
-                            System.Threading.Thread.Sleep(TimeSpan.FromSeconds(1));
-                        }*/
+                        Console.ForegroundColor = ConsoleColor.Yellow; Console.Write($" {player1.playerName}"); Console.ResetColor(); Console.WriteLine(", please enter the number of the");
+                        Console.Write(" location to place your "); Console.ForegroundColor = ConsoleColor.Green; Console.Write("X"); Console.ResetColor(); Console.Write(": ");
+                        gameBoard.location = Console.ReadLine();
+                        gameBoard.SwitchCaseX();
                     }
                     else
                     {
-                        Console.WriteLine($" {player2.playerName} please enter the number of the location to place your O:");
-                        location = Console.ReadLine().ToString();
-
-                        /*if (char.IsDigit(location[0]) && location.Length < 2)
-                        {
-                            int stringToInt = System.Convert.ToInt32(location);
-                            gameBoard.PositionCheck(stringToInt);*/
-
-                            switch (location)
-                            {
-                                case "1":
-                                    if (gameBoard.topLeft == "1")
-                                    {
-                                        gameBoard.topLeft = "O";
-                                        counter++;
-                                    }
-                                    else
-                                    {
-                                        Console.WriteLine();
-                                        Console.WriteLine(" Please choose an unused space!");
-                                        System.Threading.Thread.Sleep(TimeSpan.FromSeconds(1));
-                                    }
-
-                                    break;
-                                case "2":
-                                    if (gameBoard.topCenter == "2")
-                                    {
-                                        gameBoard.topCenter = "O";
-                                        counter++;
-                                    }
-                                    else
-                                    {
-                                        Console.WriteLine();
-                                        Console.WriteLine(" Please choose an unused space!");
-                                        System.Threading.Thread.Sleep(TimeSpan.FromSeconds(1));
-                                    }
-
-                                    break;
-                                case "3":
-                                    if (gameBoard.topRight == "3")
-                                    {
-                                        gameBoard.topRight = "O";
-                                        counter++;
-                                    }
-                                    else
-                                    {
-                                        Console.WriteLine();
-                                        Console.WriteLine(" Please choose an unused space!");
-                                        System.Threading.Thread.Sleep(TimeSpan.FromSeconds(1));
-                                    }
-
-                                    break;
-                                case "4":
-                                    if (gameBoard.midLeft == "4")
-                                    {
-                                        gameBoard.midLeft = "O";
-                                        counter++;
-                                    }
-                                    else
-                                    {
-                                        Console.WriteLine();
-                                        Console.WriteLine(" Please choose an unused space!");
-                                        System.Threading.Thread.Sleep(TimeSpan.FromSeconds(1));
-                                    }
-
-                                    break;
-                                case "5":
-                                    if (gameBoard.midCenter == "5")
-                                    {
-                                        gameBoard.midCenter = "O";
-                                        counter++;
-                                    }
-                                    else
-                                    {
-                                        Console.WriteLine();
-                                        Console.WriteLine(" Please choose an unused space!");
-                                        System.Threading.Thread.Sleep(TimeSpan.FromSeconds(1));
-                                    }
-
-                                    break;
-                                case "6":
-                                    if (gameBoard.midRight == "6")
-                                    {
-                                        gameBoard.midRight = "O";
-                                        counter++;
-                                    }
-                                    else
-                                    {
-                                        Console.WriteLine();
-                                        Console.WriteLine(" Please choose an unused space!");
-                                        System.Threading.Thread.Sleep(TimeSpan.FromSeconds(1));
-                                    }
-
-                                    break;
-                                case "7":
-                                    if (gameBoard.bottomLeft == "7")
-                                    {
-                                        gameBoard.bottomLeft = "O";
-                                        counter++;
-                                    }
-                                    else
-                                    {
-                                        Console.WriteLine();
-                                        Console.WriteLine(" Please choose an unused space!");
-                                        System.Threading.Thread.Sleep(TimeSpan.FromSeconds(1));
-                                    }
-
-                                    break;
-                                case "8":
-                                    if (gameBoard.bottomCenter == "8")
-                                    {
-                                        gameBoard.bottomCenter = "O";
-                                        counter++;
-                                    }
-                                    else
-                                    {
-                                        Console.WriteLine();
-                                        Console.WriteLine(" Please choose an unused space!");
-                                        System.Threading.Thread.Sleep(TimeSpan.FromSeconds(1));
-                                    }
-
-                                    break;
-                                case "9":
-                                    if (gameBoard.bottomRight == "9")
-                                    {
-                                        gameBoard.bottomRight = "O";
-                                        counter++;
-                                    }
-                                    else
-                                    {
-                                        Console.WriteLine();
-                                        Console.WriteLine(" Please choose an unused space!");
-                                        System.Threading.Thread.Sleep(TimeSpan.FromSeconds(1));
-                                    }
-
-                                    break;
-                                default:
-                                    Console.WriteLine("Please enter a valid board number 1-9!");
-                                    System.Threading.Thread.Sleep(TimeSpan.FromSeconds(1));
-                                    break;
-                            }
-                        /*}
-                        else
-                        {
-                            Console.WriteLine();
-                            Console.WriteLine(" Only numbers 1 - 9 please!");
-                            System.Threading.Thread.Sleep(TimeSpan.FromSeconds(1));
-                        }*/
+                        Console.ForegroundColor = ConsoleColor.Yellow; Console.Write($" {player2.playerName}"); Console.ResetColor(); Console.WriteLine(", please enter the number of the");
+                        Console.Write(" location to place your "); Console.ForegroundColor = ConsoleColor.Red; Console.Write("O"); Console.ResetColor(); Console.Write(": ");
+                        gameBoard.location = Console.ReadLine();
+                        gameBoard.SwitchCaseO();
                     }
-
                     if (gameBoard.topLeft == gameBoard.topCenter && gameBoard.topCenter == gameBoard.topRight) // top row
                     {
                         win = gameBoard.topLeft;
@@ -398,19 +95,18 @@ namespace TicTacToe3
                     {
                         win = gameBoard.topRight;
                     }
-                    else if (counter == 9)
+                    else if (gameBoard.counter == 9)
                     {
                         Console.Clear();
                         Console.WriteLine();
                         Console.WriteLine();
-                        Console.WriteLine("     Draw, nobody wins!");
+                        Console.ForegroundColor = ConsoleColor.Yellow; Console.WriteLine("     Draw, nobody wins!"); Console.ResetColor();
                         Console.WriteLine();
                         Console.WriteLine();
                         Console.WriteLine($" Win Totals:   {player1.winCount} - {player1.playerName}");
                         Console.WriteLine($"               {player2.winCount} - {player2.playerName}");
-                        System.Threading.Thread.Sleep(TimeSpan.FromSeconds(1.5));
+                        System.Threading.Thread.Sleep(TimeSpan.FromSeconds(2));
                         win = "0";
-                        //Environment.Exit(0);
                     }
                 }
                 while (win == "");
@@ -420,48 +116,47 @@ namespace TicTacToe3
                     player1.winCount++;
                     Console.WriteLine();
                     Console.WriteLine();
-                    Console.WriteLine($"     {player1.playerName} wins!");
+                    Console.ForegroundColor = ConsoleColor.Yellow; Console.WriteLine($"     {player1.playerName} wins!"); Console.ResetColor();
                     Console.WriteLine();
                     Console.WriteLine();
-                    Console.WriteLine($" Win Totals:   {player1.winCount} - {player1.playerName}");
-                    Console.WriteLine($"               {player2.winCount} - {player2.playerName}");
-
-
-
+                    Console.Write(" Win Totals:   "); Console.ForegroundColor = ConsoleColor.Green; Console.Write(player1.winCount); Console.ForegroundColor = ConsoleColor.Yellow; Console.WriteLine($" - {player1.playerName}"); Console.ResetColor();
+                    Console.WriteLine();
+                    Console.Write("               "); Console.ForegroundColor = ConsoleColor.Red; Console.Write(player2.winCount); Console.ForegroundColor = ConsoleColor.Yellow; Console.WriteLine($" - {player2.playerName}"); Console.ResetColor();
                 }
                 else if (win == "O")
                 {
                     player2.winCount++;
                     Console.WriteLine();
                     Console.WriteLine();
-                    Console.WriteLine($"     {player2.playerName} wins!");
+                    Console.ForegroundColor = ConsoleColor.Yellow; Console.WriteLine($"     {player2.playerName} wins!"); Console.ResetColor();
                     Console.WriteLine();
                     Console.WriteLine();
-                    Console.WriteLine($" Win Totals:   {player1.winCount} - {player1.playerName}");
-                    Console.WriteLine($"               {player2.winCount} - {player2.playerName}");
+                    Console.Write(" Win Totals:   "); Console.ForegroundColor = ConsoleColor.Green; Console.Write(player1.winCount); Console.ForegroundColor = ConsoleColor.Yellow; Console.WriteLine($" - {player1.playerName}"); Console.ResetColor();
+                    Console.WriteLine();
+                    Console.Write("               "); Console.ForegroundColor = ConsoleColor.Red; Console.Write(player2.winCount); Console.ForegroundColor = ConsoleColor.Yellow; Console.WriteLine($" - {player2.playerName}"); Console.ResetColor();
                 }
                 playGame = "";
-                System.Threading.Thread.Sleep(TimeSpan.FromSeconds(2));
+                System.Threading.Thread.Sleep(TimeSpan.FromSeconds(2.5));
                 while (playGame.Contains(""))
                 {
                     Console.Clear();
                     Console.WriteLine();
                     Console.WriteLine();
-                    Console.WriteLine(" Would both of you like to play another round? (y/n)");
-                    Console.WriteLine();
-                    playGame = Console.ReadLine().ToLower();
-
+                    Console.WriteLine(" Would both of you like to play another");
+                    Console.Write(" round? (y/n):  "); playGame = Console.ReadLine().ToLower();
                     if (playGame.Contains("y")) { break; }
                     else if (playGame.Contains("n")) { break; }
                     else
                     {
                         Console.WriteLine();
-                        Console.WriteLine(" Please enter a y for yes or a n for no!");
-                        System.Threading.Thread.Sleep(TimeSpan.FromSeconds(1));
+                        Console.ForegroundColor = ConsoleColor.Magenta; Console.WriteLine(" Please enter:  y for YES");
+                        Console.WriteLine();
+                        Console.WriteLine("                n for NO"); Console.ResetColor();
+                        System.Threading.Thread.Sleep(TimeSpan.FromSeconds(1.5));
                         playGame = "";
                     }
                 }
-
+                gameBoard.GameBoardReset();
             }
         }
     }
